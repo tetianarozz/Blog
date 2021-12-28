@@ -3,6 +3,6 @@ class PagesController < ApplicationController
     @name = params[:name]
   end
 
-  def home; end
+  def pattern; end
 
 end
