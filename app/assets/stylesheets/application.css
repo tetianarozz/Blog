@@ -200,6 +200,7 @@ h1 {
     margin-left: 50px;
     margin-right: 35px;
     display: block;
+    border: 1px solid red;
 }
 
 .events_text:first-child {
