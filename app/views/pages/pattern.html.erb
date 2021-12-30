@@ -1,43 +1,83 @@
 <body>
-<header>
-  <div class="container">
-    <div class="heading clearfix">
-      <img src="pages/logo.png" alt="Golden-logo.png" class="logo">
-      <nav>
-        <ul class="menu">
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">Services</a>
-          </li>
-          <li>
-            <a href="#">Portfolio</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-    <div class="titles">
-      <div class="titles_first">
-        Welcome To Our Studio!
+  <header>
+    <div class="container">
+      <div class="heading clearfix">
+        <img src="<%= asset_path('pages/logo.png')%>" alt="Golden-logo.png" class="logo">
+        <nav>
+          <ul class="menu">
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#">Services</a>
+            </li>
+            <li>
+              <a href="#">Portfolio</a>
+            </li>
+            <li>
+              <a href="#">About</a>
+            </li>
+            <li>
+              <a href="#">Contact</a>
+            </li>
+          </ul>
+        </nav>
       </div>
-      <h1>
-        It`s Nice To Meet You
-      </h1>
+      <div class="titles">
+        <div class="titles_first">
+          Welcome To Our Studio!
+        </div>
+        <h1>
+          It`s Nice To Meet You
+        </h1>
+      </div>
+      <a class="button" href="#">Tell Me More</a>
     </div>
-    <a class="button" href="#">Tell Me More</a>
-  </div>
-</header>
+  </header>
 
 <section>
   <div class="container">
+    <div class="title">
+      <h2>
+        Servises
+      </h2>
+      <p>
+        Proin iaculis purus consequat sem cure.
+      </p>
+    </div>
+      <div class="services clearfix">
+        <div class="services_item">
+          <img src="<%= asset_path('pages/icon1.png')%>" alt="Услуга">
+          <h3>E-Commerce</h3>
+          <p>
+            Proin iaculis purus consequat sem
+            cure digni ssim. Donec porttitora
+            entum suscipit aenean rhoncus posuere odio in
+            tincidunt.
+          </p>
+        </div>
+        <div class="services_item">
+          <img src="<%= asset_path('pages/icon2.png')%>" alt="Услуга">
+          <h3>Responsive Web</h3>
+          <p>
+            Proin iaculis purus consequat sem
+            cure digni ssim. Donec porttitora
+            entum suscipit aenean rhoncus posuere odio in
+            tincidunt.
+          </p>
+        </div>
+        <div class="services_item">
+          <img src="<%= asset_path('pages/icon3.png')%>" alt="Услуга">
+          <h3>Web Security</h3>
+          <p>
+            Proin iaculis purus consequat sem
+            cure digni ssim. Donec porttitora
+            entum suscipit aenean rhoncus posuere odio in
+            tincidunt.
+          </p>
+        </div>
 
+      </div>
   </div>
 </section>
 <section>
