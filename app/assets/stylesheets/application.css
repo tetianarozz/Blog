@@ -244,3 +244,13 @@ h1 {
 body .events_item > * {
     border: 1px solid red;
 }
+
+
+
+footer p {
+    color: #777777;
+    font-size: 17px;
+    line-height: 1,55em;
+    text-align: center;
+    margin-bottom: 120px;
+}
