@@ -174,3 +174,73 @@ h1 {
 .works img:last-child {
     float: right;
 }
+
+
+
+
+.events {
+    margin-top: 70px;
+}
+
+.events_item {
+    display: flex;
+    margin-bottom: 90px;
+    border: 1px solid red;
+    float: left;
+
+}
+
+.events_item img {
+    width: 200px;
+    display: flex;
+}
+
+.events_text {
+    width: 280px;
+    margin-left: 50px;
+    margin-right: 35px;
+    display: block;
+}
+
+.events_text:first-child {
+    float: left;
+    text-align: right;
+}
+
+.events_text:nth-child(2) {
+    float: right;
+    text-align: left;
+}
+
+.events_text:nth-child(3) {
+    float: left;
+    text-align: right;
+}
+
+.events_text:last-child {
+    float: right;
+    text-align: left;
+}
+
+.event_text h4 {
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 3px;
+}
+
+.event_text h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.event_text p {
+    color: #777777;
+    font-size: 17px;
+    line-height: 1,55em;
+}
+
+body .events_item > * {
+    border: 1px solid red;
+}
