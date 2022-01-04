@@ -118,8 +118,8 @@ h1 {
 .title p {
     color: #777777;
     text-align: center;
-    font-size: 40px;
-    margin-top: 5;
+    font-size: 18px;
+    margin-top: 5px;
 }
 
 .services {
@@ -175,9 +175,6 @@ h1 {
     float: right;
 }
 
-
-
-
 .events {
     margin-top: 70px;
 }
@@ -185,68 +182,51 @@ h1 {
 .events_item {
     display: flex;
     margin-bottom: 90px;
-    border: 1px solid red;
-    float: left;
-
+    width: 930px;
+    flex-direction: row;
+    align-items: center;
 }
 
-.events_item img {
+.image {
     width: 200px;
-    display: flex;
+    margin: 0 35px;
 }
 
-.events_text {
+.empty_container {
+    width: 330px;
+}
+.events_text_1, .events_text_3 {
+    text-align: right;
     width: 280px;
+    order: -1;
     margin-left: 50px;
-    margin-right: 35px;
-    display: block;
-    border: 1px solid red;
 }
 
-.events_text:first-child {
-    float: left;
-    text-align: right;
-}
-
-.events_text:nth-child(2) {
-    float: right;
+.events_text_2, .events_text_4{
     text-align: left;
+    width: 280px;
+    order: 1;
 }
 
-.events_text:nth-child(3) {
-    float: left;
-    text-align: right;
-}
-
-.events_text:last-child {
-    float: right;
-    text-align: left;
-}
-
-.event_text h4 {
+.events_item h4 {
     text-transform: uppercase;
     font-size: 20px;
     font-weight: bold;
     text-decoration: none;
-    margin-bottom: 3px;
+    line-height: 0;
+    margin: 0;
 }
 
-.event_text h3 {
+.events_item h3 {
     font-size: 18px;
     margin-bottom: 5px;
 }
 
-.event_text p {
+.events_item p {
     color: #777777;
     font-size: 17px;
     line-height: 1,55em;
 }
-
-body .events_item > * {
-    border: 1px solid red;
-}
-
-
 
 footer p {
     color: #777777;
