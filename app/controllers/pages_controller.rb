@@ -4,5 +4,4 @@ class PagesController < ApplicationController
   end
 
   def pattern; end
-
 end

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  root 'pages#index'
+  root 'pages#pattern'
 
   get '/pages', to: 'pages#pattern'
-
 end
