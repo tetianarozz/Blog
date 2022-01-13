@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   get 'pages/index'
   get 'pages/pattern'
 
-  get '/posts', to: 'posts#index'
+  resources :posts
 end

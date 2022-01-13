@@ -1,0 +1,9 @@
+<h2> <%= @post.title %></h2>
+
+<p>
+  <time datetime="<%= @post.formatted_created_at %>">
+    <%= @post.formatted_created_at %>
+  </time>
+  <br>
+  <%= @post.body %>
+</p>
