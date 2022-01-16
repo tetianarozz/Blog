@@ -1,9 +1,15 @@
-<h2> <%= @post.title %></h2>
+<h2 class="mb-4"> <%= @post.title %></h2>
+
+
+<time datetime="<%= @post.formatted_created_at %>">
+  <%= @post.formatted_created_at %>
+</time>
 
 <p>
-  <time datetime="<%= @post.formatted_created_at %>">
-    <%= @post.formatted_created_at %>
-  </time>
-  <br>
   <%= @post.body %>
 </p>
+
+<%= link_to 'Show', post_path(@post), class: 'btn btn-primary' %> |
+<%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-secondary' %> |
+<%= link_to 'Destroy', post_path(@post), class: 'btn btn-danger',
+  data: {method: :delete, confirm: 'Are you sure?'} %>
