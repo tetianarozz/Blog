@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   def show
     @post = Post.find_by id: params[:id]
-
   end
 
   def destroy
@@ -39,6 +38,8 @@ class PostsController < ApplicationController
       render :new #ще раз передивиться запрос new
     end
   end
+
+  private
 
   def post_params
     params.require(:post).permit(:title, :body)
