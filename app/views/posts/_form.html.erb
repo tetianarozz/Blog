@@ -1,9 +1,14 @@
+<!--form_with - генерує html форму, яка буде відправлена як параметри params(title, body)-->
 <%= form_with model: @post do |f| %>
   <div class="mb-3 row">
     <%= f.label :title, class: 'col-sm-2 col-form-label' %>
 
     <div class="col-sm-10">
       <%= f.text_field :title, required: true, minlength: 2, placeholder: "Title", class: 'form-control' %>
+
+      <% @post.errors.full_messages_for(:title).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
     </div>
   </div>
 
@@ -12,8 +17,15 @@
 
     <div class="col-sm-10">
       <%= f.text_area :body, required: true, minlength: 2, class: 'form-control' %>
+
+      <% @post.errors.full_messages_for(:body).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
     </div>
   </div>
 
   <%= f.submit "Submit post!", class: 'btn btn-primary' %>
 <% end %>
+
+<!-- model: @post береться з метода контроллера, і після submit потрапляє на:-->
+<!-- сreate - якщо це новий об'єкт// update - коли ми оновлюєм дані (автоматично рельси це роблять)-->

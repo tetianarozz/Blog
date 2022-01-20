@@ -1,24 +1,17 @@
 class PostsController < ApplicationController
-  def show
-    @post = Post.find_by id: params[:id]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  # готовий метод, який запускає дію перед кожним методом
+
+  def new   # відображає форму з новим об'єктом (в БД немає ще)
+    @post = Post.new
   end
 
-  def destroy
-    @post = Post.find_by id: params[:id]
-    @post.destroy
-    redirect_to posts_path
-  end
-
-  def edit
-    @post = Post.find_by id: params[:id]
-  end
-
-  def update
-    @post = Post.find_by id: params[:id]
-    if @post.update post_params
-      redirect_to posts_path  #перекидає на іншу сторінку
+  def create
+    @post = Post.create(post_params)
+    if @post.save
+      redirect_to posts_path  # перекидає на іншу сторінку
     else
-      render :new #ще раз передивиться запрос new
+      render :new   # ще раз передивиться запрос new
     end
   end
 
@@ -26,22 +19,32 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  def new
-    @post = Post.new
+  def show
   end
 
-  def create
-    @post = Post.new post_params
-    if @post.save
+  def edit   #відображає форму з існуючим об'єктом БД
+  end
+
+  def update
+    if @post.update(post_params)
       redirect_to posts_path  #перекидає на іншу сторінку
     else
-      render :new #ще раз передивиться запрос new
+      render :edit #ще раз передивиться запрос edit
     end
+  end
+
+  def destroy
+    @post.destroy
+    redirect_to posts_path    #на "posts#index"
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body)  #permit фільтрує параметри які можна оновлювати
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 end
