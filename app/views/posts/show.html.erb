@@ -15,31 +15,11 @@
   data: {method: :delete, confirm: 'Are you sure?'} %>
 
 <!-- показ коментів-->
-<h2>Comments</h2>
-<% @post.comments.each do |comment| %>
-  <p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter %>
-  </p>
-
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.body %>
-  </p>
-<% end %>
+<!-- Метод render перебирає @post.comments і візуалізує паршал з коментом-->
+<!-- (через присвоєння кожному коменту локальної змінної с таким же іменем, як і паршал (comment), який потім стає доступним в паршалі)-->
+<h2 class="mt-4">Comments</h2>
+<%= render @post.comments %>
 
 <!-- додаєм комент-->
 <h2>Add a comment:</h2>
-<%= form_with model: [ @post, @post.comments.build ] do |form| %>
-  <p>
-    <%= form.label :commenter %><br>
-    <%= form.text_field :commenter %>
-  </p>
-  <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<%= render 'comments/form' %>
