@@ -6,6 +6,13 @@ class CommentsController < ApplicationController
     # викликає у контроллері PostController метод show, який відображає show.html.erb сторінку
   end
 
+  def destroy
+    @post = Post.find(params[:post_id])  #знайти потрібну статтю
+    @comment = @post.comments.find(params[:id])  #знайти потрібний комент
+    @comment.destroy  #видалити його
+    redirect_to post_path(@post) # і повернутись на сторінку статті
+  end
+
   private
   def comment_params
     params.require(:comment).permit(:commenter, :body)
