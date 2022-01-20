@@ -11,8 +11,9 @@
 
 <!--ссилка для видалення комента-->
 <p>
-  <%= link_to "Destroy Comment", [comment.post, comment], data: {
-    turbo_method: :delete,
-    turbo_confirm: "Are you sure?"
-  } %>
+  <%= link_to "Destroy Comment", [comment.post, comment],
+      data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure?"
+              } %>
 </p>
