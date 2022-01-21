@@ -1,16 +1,21 @@
 <!--паршал для відображення 1 комента-->
-<p>
-  <strong>Commenter:</strong>
-  <%= comment.commenter %>
-</p>
+<div class="container shadow-sm p-3 mb-5 bg-white rounded">
+  <div class="row g-0">
+    <div class="col-2">
+      <p>
+        <strong><%= comment.commenter %> :</strong>
+      </p>
+    </div>
+    <div class="col-10">
+      <p>
+        <%= comment.body %>
+      </p>
+    </div>
+  </div>
 
-<p>
-  <strong>Comment:</strong>
-  <%= comment.body %>
-</p>
-
-<!--ссилка для видалення комента-->
-<p>
-  <%= link_to "Destroy Comment", [comment.post, comment],
-              data: {method: :delete, confirm: 'Are you sure?'} %>
-</p>
+  <!--ссилка для видалення комента-->
+  <p>
+    <%= link_to "Destroy Comment", [comment.post, comment],
+                data: {method: :delete, confirm: 'Are you sure?'} %>
+  </p>
+</div>

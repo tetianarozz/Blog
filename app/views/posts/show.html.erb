@@ -1,25 +1,34 @@
-<h2 class="mb-4"> <%= @post.title %></h2>
+<div class="card-body mb-5 shadow-sm bg-light ">
+  <h1 class="mb-4, text-center "> <%= @post.title %></h1>
 
+  <figure class="text-start">
+    <blockquote class="blockquote">
+      <time datetime="<%= @post.formatted_created_at %>">
+        <%= @post.formatted_created_at %>
+      </time>
+    </blockquote>
+  </figure>
 
-<time datetime="<%= @post.formatted_created_at %>">
-  <%= @post.formatted_created_at %>
-</time>
+    <p class="text-center, text-md-start, fs-4 shadow-sm bg-white rounded">
+      <%= @post.body %>
+    </p>
 
-<p>
-  <%= @post.body %>
-</p>
-
-<%= link_to 'Show', post_path(@post), class: 'btn btn-primary' %> |
-<%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-secondary' %> |
-<%= link_to 'Destroy', post_path(@post), class: 'btn btn-danger',
-  data: {method: :delete, confirm: 'Are you sure?'} %>
+  <%= link_to 'Show', post_path(@post), class: 'btn btn-primary' %>
+  <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-secondary' %>
+  <%= link_to 'Destroy', post_path(@post), class: 'btn btn-danger',
+    data: {method: :delete, confirm: 'Are you sure?'} %>
+</div>
 
 <!-- показ коментів-->
 <!-- Метод render перебирає @post.comments і візуалізує паршал з коментом-->
 <!-- (через присвоєння кожному коменту локальної змінної с таким же іменем, як і паршал (comment), який потім стає доступним в паршалі)-->
-<h2 class="mt-4">Comments</h2>
-<%= render @post.comments %>
+<div class="p-2 mt-3 bg-light text-black ">
+  <h3 class="mt-4, text-center">Comments:</h3>
+</div>
+<div class="p-3 mb-2 bg-light text-dark">
+  <%= render @post.comments %>
+</div>
 
 <!-- додаєм комент-->
-<h2>Add a comment:</h2>
+<h3>Add a comment:</h3>
 <%= render 'comments/form' %>
