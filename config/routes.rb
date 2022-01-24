@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root "posts#index"
 
   resources :posts do
-    resources :comments, :only => [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
   end
 
   get 'pages/index'
