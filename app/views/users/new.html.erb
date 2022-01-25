@@ -1,5 +1,11 @@
 <h1>Sign Up</h1>
 <%= form_for @user do |f|%>
+  <% if @user.errors.any? %>
+    <% @user.errors.full_messages.each do |msg| %>
+      <%= msg %>
+    <% end %>
+  <% end %>
+
   <%= f.label :first_name%><br>
   <%= f.text_field :first_name%><br>
 
@@ -16,4 +22,5 @@
   <%= f.password_field :password_confirmation%><br>
 
   <%= f.submit "Create"%>
+
 <%end%>

@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = @post.comments.find(params[:id])  #знайти потрібний комент
+    @comment = Comment.find(params[:id])  #знайти потрібний комент
     @comment.destroy  #видалити його
     redirect_to post_path(@post) # і повернутись на сторінку статті
   end

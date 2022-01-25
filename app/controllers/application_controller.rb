@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authorized
+
   helper_method :current_user
   helper_method :logged_in?
 
@@ -8,10 +9,14 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    !current_user.nil?
+    current_user.present?
   end
 
   def authorized
     redirect_to '/welcome' unless logged_in?
+  end
+
+  def sign_out
+    session.delete :user_id #видалить запис хешу по ключу
   end
 end

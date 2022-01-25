@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  skip_before_action :authorized, only: [:index, :show]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   # готовий метод, який запускає дію перед кожним методом
 
@@ -7,7 +8,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(post_params)
+    @post = Post.create(post_params.merge(user: current_user))
+    #@post = Post.create(post_params)
     if @post.save
       redirect_to posts_path  # перекидає на іншу сторінку
     else
@@ -41,7 +43,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body)  #permit фільтрує параметри які можна оновлювати
+    params.require(:post).permit(:title, :body,)  #permit фільтрує параметри які можна оновлювати
   end
 
   def set_post

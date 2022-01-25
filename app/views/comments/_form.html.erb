@@ -1,5 +1,5 @@
 <!-- form_with - хелпер, який генерує HTML-код форми вводу даних, звідки параметри (commenter, body) потрапляють в CommentsController в comment_params -->
-<!---form_with використовує масив, який побудує вкладений маршрут (/articles/1/comments) -->
+<!---form_with використовує масив, який побудує вкладений маршрут (/posts/1/comments) -->
 
 <%= form_with model: [ @post, @post.comments.build ] do |form| %>
 
