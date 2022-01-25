@@ -13,10 +13,10 @@ class ApplicationController < ActionController::Base
   end
 
   def authorized
-    redirect_to '/welcome' unless logged_in?
+    redirect_to "/welcome" unless logged_in?
   end
 
   def sign_out
-    session.delete :user_id #видалить запис хешу по ключу
+    session.delete :user_id # видалить запис хешу по ключу
   end
 end

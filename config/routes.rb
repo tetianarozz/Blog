@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root "posts#index"
 
-  get 'pages/index'
-  get 'pattern', to: "pages#pattern"
+  get "pages/index"
+  get "pattern", to: "pages#pattern"
 
   resources :posts do
     resources :comments, only: [:create, :destroy]
@@ -10,9 +10,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
 
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
-  delete 'log_out', to: "sessions#destroy"
-  get 'welcome', to: 'sessions#welcome'
-  get 'authorized', to: 'sessions#page_requires_login'
+  get "login", to: "sessions#new"
+  post "login", to: "sessions#create"
+  delete "log_out", to: "sessions#destroy"
+  get "welcome", to: "sessions#welcome"
+  get "authorized", to: "sessions#page_requires_login"
 end

@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params.merge(user: current_user))
-    #@post = Post.create(post_params)
+    # @post = Post.create(post_params)
     if @post.save
       redirect_to posts_path  # перекидає на іншу сторінку
     else
@@ -24,26 +24,26 @@ class PostsController < ApplicationController
   def show
   end
 
-  def edit   #відображає форму з існуючим об'єктом БД
+  def edit   # відображає форму з існуючим об'єктом БД
   end
 
   def update
     if @post.update(post_params)
-      redirect_to posts_path  #перекидає на іншу сторінку
+      redirect_to posts_path  # перекидає на іншу сторінку
     else
-      render :edit #ще раз передивиться запрос edit
+      render :edit # ще раз передивиться запрос edit
     end
   end
 
   def destroy
     @post.destroy
-    redirect_to posts_path    #на "posts#index"
+    redirect_to posts_path    # на "posts#index"
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :body,)  #permit фільтрує параметри які можна оновлювати
+    params.require(:post).permit(:title, :body,)  # permit фільтрує параметри які можна оновлювати
   end
 
   def set_post
