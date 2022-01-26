@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   # готовий метод, який запускає дію перед кожним методом
 
   def create
-    @comment = @post.comments.create(comment_params)  # create метод асоціації has_many для створення і збереження комента
+    @comment = @post.comments.create(comment_params.merge(user: current_user))  # create метод асоціації has_many для створення і збереження комента
     redirect_to post_path(@post)  # перенаправити юзера на сторінку зі статтею за допомогою хелпера post_path.
     # викликає у контроллері PostController метод show, який відображає show.html.erb сторінку
   end
