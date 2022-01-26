@@ -15,6 +15,7 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :comments
+  has_many :likes, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true
 end
