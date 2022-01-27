@@ -17,6 +17,17 @@
   <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-secondary' %>
   <%= link_to 'Destroy', post_path(@post), class: 'btn btn-danger',
     data: {method: :delete, confirm: 'Are you sure?'} %>
+
+  <%= button_to 'Like', post_likes_path(@post), method: :post %>
+
+  <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
+  <% if pre_like %>
+    <%= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete %>
+  <% else %>
+    <%= button_to 'Like', post_likes_path(@post), method: :post %>
+  <% end %>
+
+  <p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 </div>
 
 <!-- показ коментів-->

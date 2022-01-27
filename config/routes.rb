@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
 
+  resources :posts do
+    resources :likes, only: [:create, :destroy]
+  end
+
   get "login", to: "sessions#new"
   post "login", to: "sessions#create"
   delete "log_out", to: "sessions#destroy"
