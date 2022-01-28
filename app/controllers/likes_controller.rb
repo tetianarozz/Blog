@@ -7,9 +7,10 @@ class LikesController < ApplicationController
       flash[:notice] = "You can't like more than once"
     else
       @post.likes.create(user_id: current_user.id)
-      params[ :like ][ :user_id ] = current_user.id  # ?
-      @like = Like.new(like_params)
-    redirect_to posts_path  # ?
+      #params[ :like ][ :user_id ] = current_user.id  # ?
+      #@like = Like.new(like_params)
+      redirect_to posts_path  # ?
+    end
   end
 
   private
@@ -27,8 +28,6 @@ class LikesController < ApplicationController
   end
 
   def already_liked?
-    Like.where(user_id: current_user.id, post_id:
-      params[:post_id]).exists?
-    end
+    Like.where(user_id: current_user.id, post_id: params[:post_id]).exists?
   end
 end
