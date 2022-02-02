@@ -1,0 +1,2 @@
+document.querySelector(".like").innerHTML = <%= @post.likes.where(like: true).count %>;
+

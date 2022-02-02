@@ -1,15 +1,20 @@
 class LikesController < ApplicationController
-  before_action :find_post, only: [:create]
+  before_action :find_post
   before_action :find_like
 
-  def create
-    if already_liked?
-      flash[:notice] = "You can't like more than once"
+  def like
+    if @like
+      @like.destroy if @like.like?
     else
-      @post.likes.create(user_id: current_user.id)
-      #params[ :like ][ :user_id ] = current_user.id  # ?
-      #@like = Like.new(like_params)
-      redirect_to posts_path  # ?
+      @like = @post.likes.create(like: true, user: current_user)
+    end
+  end
+
+  def dislike
+    if @like
+      @like.destroy if @like.dislike?
+    else
+      @like = @post.likes.create(dislike: true, user: current_user)
     end
   end
 
@@ -20,14 +25,6 @@ class LikesController < ApplicationController
   end
 
   def find_like
-    @like = @post.likes.find(params[:id])
-  end
-
-  def like_params
-    params.require(:like).permit(:value, :user_id, :post_id)
-  end
-
-  def already_liked?
-    Like.where(user_id: current_user.id, post_id: params[:post_id]).exists?
+    @like = @post.likes.find_by(user: current_user)
   end
 end
