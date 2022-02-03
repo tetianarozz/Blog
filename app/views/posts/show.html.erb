@@ -9,28 +9,18 @@
     </blockquote>
   </figure>
 
-    <p class="text-center, text-md-start, fs-4 shadow-sm bg-white rounded">
+    <p class="text-start fw-normal fs-4 shadow-sm bg-white rounded">
       <%= @post.body %>
     </p>
-
-  <%= link_to 'Show ', post_path(@post), class: 'btn btn-primary' %>
-  <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-secondary' %>
-  <%= link_to 'Destroy', post_path(@post), class: 'btn btn-danger',
-    data: {method: :delete, confirm: 'Are you sure?'} %>
-
-  <div class="nav mt-3 justify-content-end">
-
-    <li class="nav-item">
-      <%= link_to post_like_path(@post), remote: true do %>
-        <i class="far fa-thumbs-up"><span class="like"><%= like_count(@post) %></span></i>
-      <% end %>
-    </li>
-
-    <li class="nav-item">
-      <%= link_to post_dislike_path(@post), remote: true do %>
-        <i class="fas fa-thumbs-down" style="color:green"><span class="dislike"><%= dislike_count(@post) %></span></i>
-      <% end %>
-    </li>
+  <div class="row my-3 mx-1">
+    <div class="col-11">
+    <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary' %>
+    <%= link_to 'Destroy', post_path(@post), class: 'btn btn-danger',
+      data: {method: :delete, confirm: 'Are you sure?'} %>
+    </div>
+    <div class="col-1">
+    <%= render 'likes/icons' %>
+    </div>
   </div>
 </div>
 

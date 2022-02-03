@@ -1,0 +1,19 @@
+<% if liked?(@post) %>
+  <%= link_to post_like_path(@post), remote: true do %>
+    <i class="fas fa-thumbs-up"><span class="like"><%= like_count(@post) %></span></i>
+  <% end %>
+<% else %>
+  <%= link_to post_like_path(@post), remote: true do %>
+    <i class="far fa-thumbs-up"><span class="like"><%= like_count(@post) %></span></i>
+  <% end %>
+<% end %>
+
+<% if disliked?(@post) %>
+  <%= link_to post_dislike_path(@post), remote: true do %>
+    <i class="fas fa-thumbs-down"><span class="dislike"><%= dislike_count(@post) %></span></i>
+  <% end %>
+<% else %>
+  <%= link_to post_dislike_path(@post), remote: true do %>
+    <i class="far fa-thumbs-down"><span class="dislike"><%= dislike_count(@post) %></span></i>
+  <% end %>
+<% end %>
