@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  before_action :authorized
   before_action :find_post
   before_action :find_like
 

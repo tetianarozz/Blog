@@ -14,11 +14,10 @@
     <header class="p-3 bg-dark text-white">
       <div class="container">
         <nav class="d-flex flex-wrap align-items-center ">
-          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2  mb-md-0 nav justify-content-lg-start">
-            <li> <%= link_to 'Home', welcome_path, class: 'nav-link px-2 text-white' %></li>
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2  mb-md-0 justify-content-lg-start">
             <li> <%= link_to 'Posts', posts_path, class: 'nav-link px-2 text-white' %></li>
           </ul>
-          <ul class="nav col-12 col-lg-auto mb-2 mb-md-0 nav justify-content-end">
+          <ul class="nav col-12 col-lg-auto mb-2 mb-md-0 justify-content-end">
             <% if logged_in? %>
               <li> <%= link_to 'Log out', log_out_path, class: 'nav-link px-2 text-white',
                                data: {method: :delete}%></li>
