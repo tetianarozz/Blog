@@ -1,1 +1,1 @@
-document.querySelector(".dislike").innerHTML = <%= @post.likes.where(dislike: true).count %>;
+document.querySelector(".dislike_count").innerHTML = <%= @post.likes.where(dislike: true).count %>;

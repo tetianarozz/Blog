@@ -1,2 +1,5 @@
-document.querySelector(".like").innerHTML = <%= @post.likes.where(like: true).count %>;
+document.querySelector(".like_count").innerHTML = <%= @post.likes.where(like: true).count %>;
 
+document.getElementById("like").classList.remove("far")
+
+document.getElementById("like").classList.add("fas")
