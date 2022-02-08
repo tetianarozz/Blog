@@ -14,5 +14,4 @@ module LikesHelper
   def disliked?(post)
     post.likes.where(dislike: true, user: current_user).present?
   end
-
 end

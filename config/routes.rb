@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
 
   resources :posts do
-    get 'like', to: "likes#like"
-    get 'dislike', to: "likes#dislike"
+    get "like", to: "likes#like"
+    get "dislike", to: "likes#dislike"
   end
 
   get "login", to: "sessions#new"
