@@ -1,5 +1,9 @@
 document.querySelector(".like_count").innerHTML = <%= @post.likes.where(like: true).count %>;
 
+<% if @like.persisted? %>  /*persisted? повертає true якщо лайк існує*/
 document.getElementById("like").classList.remove("far")
-
 document.getElementById("like").classList.add("fas")
+<% else %>
+document.getElementById("like").classList.remove("fas")
+document.getElementById("like").classList.add("far")
+<% end %>

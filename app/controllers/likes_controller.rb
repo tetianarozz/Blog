@@ -4,19 +4,15 @@ class LikesController < ApplicationController
   before_action :find_like
 
   def like
-    if @like
-      @like.destroy if @like.like?
-    else
-      @like = @post.likes.create(like: true, user: current_user)
-    end
+    return @like.destroy if @like.present?
+
+    @like = @post.likes.create(like: true, user: current_user)
   end
 
   def dislike
-    if @like
-      @like.destroy if @like.dislike?
-    else
-      @like = @post.likes.create(dislike: true, user: current_user)
-    end
+    return @dislike.destroy if @dislike.present?
+
+    @dislike = @post.likes.create(dislike: true, user: current_user)
   end
 
   private

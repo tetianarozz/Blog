@@ -5,24 +5,3 @@
 <%= link_to post_dislike_path(@post), remote: true do %>
     <i id="dislike" class="far fa-thumbs-down"><span class="dislike_count"><%= dislike_count(@post) %></span></i>
 <% end %>
-
-
-<%# if liked?(@post) %>
-  <%#= link_to post_like_path(@post), remote: true do %>
-<!--    <i class="fas fa-thumbs-up" id = "like"><span class="like_count"><%#= like_count(@post) %></span></i>-->
-  <%# end %>
-<%# else %>
-  <%#= link_to post_like_path(@post), remote: true do %>
-<!--    <i class="far fa-thumbs-up"><span class="like_count"><%#= like_count(@post) %></span></i>-->
-  <%# end %>
-<%# end %>
-
-<%# if disliked?(@post) %>
-  <%#= link_to post_dislike_path(@post), remote: true do %>
-<!--    <i class="fas fa-thumbs-down"><span class="dislike_count"><%#= dislike_count(@post) %></span></i>-->
-  <%# end %>
-<%# else %>
-  <%#= link_to post_dislike_path(@post), remote: true do %>
-<!--    <i class="far fa-thumbs-down"><span class="dislike_count"><%#= dislike_count(@post) %></span></i>-->
-  <%# end %>
-<%# end %>
