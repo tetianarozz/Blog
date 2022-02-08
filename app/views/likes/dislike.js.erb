@@ -1,6 +1,6 @@
 document.querySelector(".dislike_count").innerHTML = <%= @post.likes.where(dislike: true).count %>;
 
-<% if @dislike.persisted? %>  /*persisted? повертає true якщо лайк існує*/
+<% if @like.persisted? %>  /*persisted? повертає true якщо лайк існує*/
 document.getElementById("dislike").classList.remove("far")
 document.getElementById("dislike").classList.add("fas")
 <% else %>

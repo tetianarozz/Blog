@@ -10,9 +10,9 @@ class LikesController < ApplicationController
   end
 
   def dislike
-    return @dislike.destroy if @dislike.present?
+    return @like.destroy if @like.present?
 
-    @dislike = @post.likes.create(dislike: true, user: current_user)
+    @like = @post.likes.create(dislike: true, user: current_user)
   end
 
   private
