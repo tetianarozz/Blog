@@ -24,7 +24,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    #impressionist(@post)  #Чи потрібен цей запис?
   end
 
   def edit   # відображає форму з існуючим об'єктом БД
