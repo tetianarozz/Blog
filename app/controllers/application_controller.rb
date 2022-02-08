@@ -19,4 +19,8 @@ class ApplicationController < ActionController::Base
   def sign_out
     session.delete :user_id # видалить запис хешу по ключу
   end
+
+  def admin?
+    current_user.admin?
+  end
 end
