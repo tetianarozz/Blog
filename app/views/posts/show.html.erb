@@ -15,15 +15,17 @@
 
   <div class="row my-4 mx-1">
     <div class="col-11">
-    <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary' if  author?%>
+    <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary' if author?%>
     <%= link_to 'Destroy', post_path(@post), class: 'btn btn-danger',
-      data: {method: :delete, confirm: 'Are you sure?'} if  author?%>
+      data: {method: :delete, confirm: 'Are you sure?'} if author?%>
     </div>
 
     <div class="col-1">
     <%= render 'likes/icons' %>
     </div>
   </div>
+
+  <p> <i class="far fa-eye"><span class="mx-1"><%= @post.impressionist_count(:filter=>:ip_address)%></span></i> watching </p>
 </div>
 
 <!-- показ коментів-->

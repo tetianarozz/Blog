@@ -3,6 +3,8 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   # готовий метод, який запускає дію перед кожним методом
 
+  impressionist :actions=>[:show,:index]
+
   def new   # відображає форму з новим об'єктом (в БД немає ще)
     @post = Post.new
   end
@@ -22,6 +24,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    #impressionist(@post)  #Чи потрібен цей запис?
   end
 
   def edit   # відображає форму з існуючим об'єктом БД
