@@ -1,6 +1,8 @@
 RailsAdmin.config do |config|
   config.asset_source = :webpacker
 
+  config.parent_controller = "::ApplicationController" # для видимості current_user
+
   ### Popular gems integration
 
   ## == Devise ==
@@ -25,6 +27,10 @@ RailsAdmin.config do |config|
   # config.show_gravatar = true
 
   config.included_models = ["Post", "Comment", "User"]
+
+  config.authorize_with do
+    redirect_to "/posts" unless current_user.admin?
+  end
 
   config.actions do
     dashboard                     # mandatory
