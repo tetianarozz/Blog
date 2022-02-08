@@ -15,7 +15,7 @@
 
   <!--ссилка для видалення комента-->
   <p>
-    <%= link_to "Destroy Comment", [comment.post, comment],
+    <%= link_to "Destroy Comment", post_comment_path(@post, comment),
                 data: {method: :delete, confirm: 'Are you sure?'} %>
   </p>
 </div>
