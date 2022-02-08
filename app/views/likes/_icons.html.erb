@@ -1,5 +1,5 @@
 <%= link_to post_like_path(@post), remote: true do %>
-  <i id="like" class="far fa-thumbs-up active_like"><span class="like_count"><%= like_count(@post) %></span></i>
+  <i id="like" class="far fa-thumbs-up"><span class="like_count"><%= like_count(@post) %></span></i>
 <% end %>
 
 <%= link_to post_dislike_path(@post), remote: true do %>
