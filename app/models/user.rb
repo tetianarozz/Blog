@@ -18,4 +18,5 @@ class User < ApplicationRecord
   has_many :likes
 
   validates :email, presence: true, uniqueness: true
+  validates :first_name, presence: true
 end
