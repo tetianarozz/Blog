@@ -8,9 +8,17 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:email])
 
     if @user && @user.authenticate(params[:password])
+    if @user.email_confirmed
       session[:user_id] = @user.id
+      sign_in(@user)
       redirect_to root_path
     else
+      flash.now[:error] = 'Please activate your account by following the
+        instructions in the account confirmation email you received to proceed'
+      render 'new'
+    end
+    else
+      flash.now[:error] = 'Invalid email/password combination' # Not quite right!
       render :new
     end
   end

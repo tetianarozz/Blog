@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
   end
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create] do
+    member do
+      get :confirm_email
+    end
+  end
 
   resources :posts do
     get "like", to: "likes#like"
