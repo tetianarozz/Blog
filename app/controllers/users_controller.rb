@@ -9,9 +9,9 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.save
       session[:user_id] = @user.id # створюєм нову пару ключ-значення в сесії
-      UserMailer.with(user: @user).registration_confirmation.deliver_later
+      UserMailer.with(user: @user).registration_confirmation.deliver_now
       flash[:success] = "Please confirm your email address to continue"
-      redirect_to root_path  # перекидає на іншу сторінку
+      redirect_to root_url  # перекидає на іншу сторінку
     else
       flash[:error] = "Ooooppss, something went wrong!"
       render :new   # ще раз передивиться запрос new
@@ -24,16 +24,16 @@ class UsersController < ApplicationController
       @user.email_activate
       flash[:success] = "Welcome! Your email has been confirmed.
       Please sign in to continue."
-      redirect_to login_path
+      redirect_to login_url
     else
       flash[:error] = "Sorry. User does not exist"
-      redirect_to root_path
+      redirect_to root_url
     end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :second_name, :email, :password)  # permit фільтрує параметри які можна оновлювати
+    params.require(:user).permit(:first_name, :second_name, :email, :password, :password_confirmation)  # permit фільтрує параметри які можна оновлювати
   end
 end
