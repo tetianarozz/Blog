@@ -1,5 +1,12 @@
 <h1>Login</h1>
 <%= form_with url: login_path do %>
+
+  <% if @user&.errors&.any? %>
+    <% @user.errors.full_messages.each do |msg| %>
+      <%= msg %>
+    <% end %>
+  <% end %>
+
   <%= label_tag :email %>
   <%= text_field_tag :email %>
   <%= label_tag :password %>
