@@ -9,7 +9,6 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:password])
     if @user.email_confirmed
-      session[:user_id] = @user.id
       sign_in(@user)
       redirect_to root_path
     else
